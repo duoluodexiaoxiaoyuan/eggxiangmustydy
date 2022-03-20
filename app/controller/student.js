@@ -1,7 +1,7 @@
 const Controller = require("egg").Controller;
 class StudentController extends Controller {
   async index() {
-    let list = await this.ctx.service.Student.getStudentList();
+    let list = await this.ctx.service.student.getStudentList();
     if (list) {
       this.ctx.body = {
         code: 20000,
@@ -19,7 +19,7 @@ class StudentController extends Controller {
     let name = this.ctx.request.body.name;
     let achievement = this.ctx.request.body.achievement;
     let clazz_id = this.ctx.request.body.clazz_id;
-    let result = await this.ctx.service.Student.createStudent(
+    let result = await this.ctx.service.student.createStudent(
       name,
       achievement,
       clazz_id
